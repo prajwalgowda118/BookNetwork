@@ -4,6 +4,7 @@ package com.scaler.booknetwork.booknetwork.Request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.util.Map;
 import java.util.Set;
 
 @Getter
@@ -18,5 +19,6 @@ public class ExceptionResponse {
     private String businessErrorMessage;
     private String errorCode;
     private Set<String> validationsErrors;
+    private Map<String,String> errors;
 
 }

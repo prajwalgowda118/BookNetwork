@@ -41,6 +41,9 @@ public class User implements UserDetails, Principal {
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
 
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
+
     @CreatedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
@@ -50,6 +53,9 @@ public class User implements UserDetails, Principal {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<BookTransactionHistory> histories;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
